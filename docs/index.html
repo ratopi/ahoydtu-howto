@@ -433,9 +433,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>Howto install AhoyDTU on ESP8266</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_hardware">Hardware</a></li>
+<li><a href="#_connections">Connections</a>
+<ul class="sectlevel2">
+<li><a href="#_pin_layout_of_nrf24l01">Pin Layout of NRF24L01+</a></li>
+</ul>
+</li>
+<li><a href="#_software">Software</a></li>
+<li><a href="#_mistakes">Mistakes</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -546,11 +559,8 @@ Therefore some more information here.</p>
 <p>The pins for CS, CE and IRQ can be specified via the WebGUI.
 The pins for MISO, MOSI and SCLK are specified in the <a href="https://github.com/lumapu/ahoy/blob/main/src/config/config.h">config.h</a> (currently starting at line 145).</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_pin_layout_of_nrf24l01">Pin Layout of NRF24L01+</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_pin_layout_of_nrf24l01">Pin Layout of NRF24L01+</h3>
 <div class="paragraph">
 <p>Seen from below, socket on the left.</p>
 </div>
@@ -578,6 +588,44 @@ The pins for MISO, MOSI and SCLK are specified in the <a href="https://github.co
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_software">Software</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To install AhoyDTU on ESP8266:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>download the newest binaries from <a href="https://github.com/lumapu/ahoy/releases" class="bare">https://github.com/lumapu/ahoy/releases</a>,</p>
+</li>
+<li>
+<p>unzip it,</p>
+</li>
+<li>
+<p>upload the binary with <code>esptool`<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> to you ESP.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example for upload:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>`esptool write_flash 0x0 ahoy_v0.8.36/ESP8266/231230_ahoy_0.8.36_6fb0535_esp8266.bin`</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you like to watch serial output, you may use screen for that:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>`screen /dev/ttyUSB0 115200`</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -612,10 +660,13 @@ The pins for MISO, MOSI and SCLK are specified in the <a href="https://github.co
 <div class="footnote" id="_footnotedef_7">
 <a href="#_footnoteref_7">7</a>. The color of the wires doesn&#8217;t matter. ;-)
 </div>
+<div class="footnote" id="_footnotedef_8">
+<a href="#_footnoteref_8">8</a>. On debian just do an `apt install esptool</code>.
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-17 14:19:57 UTC
+Last updated 2024-02-17 14:33:36 UTC
 </div>
 </div>
 </body>
