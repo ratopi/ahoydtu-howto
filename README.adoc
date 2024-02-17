@@ -1,3 +1,5 @@
+:toc: left
+
 = Howto install AhoyDTU on ESP8266
 
 Currently there is nofootnote:[AFAIK.]footnote:[Due to a bug in the former documentation for ESP8266.]
@@ -32,7 +34,7 @@ Optional
 The pins for CS, CE and IRQ can be specified via the WebGUI.
 The pins for MISO, MOSI and SCLK are specified in the https://github.com/lumapu/ahoy/blob/main/src/config/config.h[config.h] (currently starting at line 145).
 
-== Pin Layout of NRF24L01+
+=== Pin Layout of NRF24L01+
 
 Seen from below, socket on the left.
 
@@ -42,6 +44,25 @@ Seen from below, socket on the left.
 | CE   | CSN
 | GND  | VCC
 |===
+
+
+== Software
+
+To install AhoyDTU on ESP8266:
+
+* download the newest binaries from https://github.com/lumapu/ahoy/releases,
+* unzip it,
+* upload the binary with `esptool`footnote:[On debian just do an `apt install esptool`.] to you ESP.
+
+Example for upload:
+
+	`esptool write_flash 0x0 ahoy_v0.8.36/ESP8266/231230_ahoy_0.8.36_6fb0535_esp8266.bin`
+
+
+If you like to watch serial output, you may use screen for that:
+
+	`screen /dev/ttyUSB0 115200`
+
 
 == Mistakes
 
