@@ -1,0 +1,35 @@
+#!/bin/bash
+
+cd "$( dirname "$0" )"
+
+publish=false
+
+if [ -z "$1" ]; then
+	echo "usage: $0 <cmd>"
+	echo
+	echo "cmd:"
+	echo "* publish: will do a git commit and git push to origin"
+	echo
+fi
+
+if [ "$1" == "publish" ]; then
+	publish=true
+fi
+
+if "$publish"; then
+	echo "will publish page"
+else
+	echo "will NOT publish page"
+fi
+
+
+echo "rendering the page ..."
+echo "UID=$UID" > .env
+docker compose up
+
+if "$publish"; then
+	echo "now commiting and pushing to origin ..."
+	git add -A .
+	git commit -m 'rendered updated document'
+	git push origin
+fi

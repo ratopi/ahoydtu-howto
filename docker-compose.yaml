@@ -1,0 +1,10 @@
+
+services:
+  renderer:
+    image: asciidoctor/docker-asciidoctor
+    command: sh -c "asciidoctor README.adoc && mv README.html docs/index.html"
+    user: "$UID"
+    volumes:
+      - .:/documents/
+
+ # ~> docker run -it -v /home/user/directory-with-asciidoc-files:/documents/ asciidoctor/docker-asciidoctor    
