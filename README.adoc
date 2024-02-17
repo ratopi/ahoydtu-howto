@@ -1,0 +1,49 @@
+= Howto install AhoyDTU on ESP8266
+
+Currently there is nofootnote:[AFAIK.]footnote:[Due to a bug in the former documentation for ESP8266.]
+documentation in https://github.com/lumapu/ahoy[AhoyDTU] howto wire up with a NodeMCU based on an ESP8266.
+Therefore some more information here.
+
+== Hardware
+
+Needed:
+
+* ESP8266 (i.e. NodeMCU) - Microcontroller
+* NRF24L01+ - Wireless transceiver module footnote:[The "\+" version is needed. Without "+" it won't work.]
+
+Optional
+
+* 100µF Capacitor beetween GND and VCCfootnote:[Electrolytic capcacitors have polarization. Therefore, connect it in the correct way. The ElCo has a "-" or "+" printed on its cover.] - as closefootnote:[This capacitor is buffering out power peaks of the transceiver module during send and receive; and therefore stabilizes the power for the microcontroller.] as possible to the transceiver module.
+
+== Connections
+
+|===
+| Signal   | GPIO | Pin footnote:[Pin on NodeMCU DevKit standard module.] | Color ISO (DIN)footnote:[The color of the wires doesn't matter. ;-)]
+| CS/CSN   | 15   | D8   | OG (or)
+| CE       |  0   | D3   | BN (br)
+| IRQ      |  2   | D4   | BU (bl)
+| MISO     | 12   | D6   | GN (gr)
+| MOSI     | 13   | D7   | VT (vi)
+| SCK/SCLK | 14   | D5   | YE (ge)
+| GND      | -    | GND  | BK (sw)
+| VCC      | -    | 3.3V | RD (rt)
+|===
+
+The pins for CS, CE and IRQ can be specified via the WebGUI.
+The pins for MISO, MOSI and SCLK are specified in the https://github.com/lumapu/ahoy/blob/main/src/config/config.h[config.h] (currently starting at line 145).
+
+== Pin Layout of NRF24L01+
+
+Seen from below, socket on the left.
+
+|===
+| MISO | IRQ
+| SCK  | MOSI
+| CE   | CSN
+| GND  | VCC
+|===
+
+== Mistakes
+
+If you find an erros in this documentation please feel free to add an  https://github.com/ratopi/ahoydtu-howto/issues[issue].
+
