@@ -11,7 +11,7 @@ Therefore some more information here.
 Needed:
 
 * ESP8266 (i.e. NodeMCU) - Microcontroller
-* NRF24L01+ - Wireless transceiver module footnote:[The "\+" version is needed. Without "+" it won't work.]
+* NRF24L01+ - Wireless transceiver module footnote:[The "\+" version is needed, because the communication happen with 250 kbps.]
 
 Optional
 
