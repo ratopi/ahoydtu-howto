@@ -52,7 +52,7 @@ To install AhoyDTU on ESP8266:
 
 * download the newest binaries from https://github.com/lumapu/ahoy/releases,
 * unzip it,
-* upload the binary with `esptool`footnote:[On debian just do an `apt install esptool`.] to you ESP.
+* upload the binary with `esptool` footnote:[On debian just do an `apt install esptool`.] to you ESP.
 
 Example for upload:
 
